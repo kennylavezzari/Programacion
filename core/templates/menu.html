@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block contenidohijas %}
+{% for Presenta in valores  %}
+    <h1></h1>
+    <h2></h2>
+    <TABLE BORDER="2">
+	<TR>
+		<TH>Titulo</TH> <TH>contenido</TH> <TH>Head3</TH>
+	</TR>
+	<TR>
+		<TD>{{ Presenta.titulo }}</TD> <TD>{{ Presenta.contentenido }}</TD> <TD> <img src="{{ Presenta.imagen.url}}" alt="Imagen No Cargada1"></TD>
+	</TR>
+
+</TABLE>
+
+{% endfor %}
+
+{%endblock %}

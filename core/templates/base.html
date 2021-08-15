@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block titulohijas %} {% endblock %}
+    </title>
+    {% load static %}
+    <link href="{% static 'core/css/estilos.css' %}" rel="stylesheet">
+</head>
+<body>
+ <ul id=”button”>
+     <li><a href="{% url 'menu' %}">Menu Principal</a></li>
+     <li><a href="{% url 'inicio1' %}">Inicio</a></li>
+     <li><a href="{% url 'acerca' %}">Acerca</a></li>
+     <li><a href="{% url 'portafolio' %}">Portafolio</a></li>
+     <li><a href="{% url 'comtacto' %}">comtacto</a></li>
+     <li><a href="{% url 'datos' %}">Kenny lavezzari</a></li>
+     <li><a href="{% url 'buscaporta' %}">buscar portafolio</a></li>
+ </ul>
+{% block contenidohijas %}
+
+
+{%endblock %}
+
+<footer>
+    <h1>Kenny Lavezzari </h1>
+</footer>
+</body>
+</html>

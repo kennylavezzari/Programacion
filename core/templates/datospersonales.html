@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block contenidohijas %}
+<h1>kENNY LAVEZZARI </h1>
+{% for Presenta in valores  %}
+    <h1></h1>
+    <h2></h2>
+    <TABLE BORDER="2">
+	<TR>
+		<TD>{{ Presenta.apellido}}</TD>
+        <TD>{{ Presenta.cedula }}</TD>
+         <TD>{{ Presenta.direccion }}</TD>
+
+	</TR>
+
+</TABLE>
+
+{% endfor %}
+
+{% endblock %}
