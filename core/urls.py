@@ -11,4 +11,14 @@ urlpatterns = [
     path('kenny_Lavezzari', views.datospersonalesview, name='datos'),
     path('buscarportafolio', views.buscarportafolio, name='buscaporta'),
     path('buscar/', views.buscarportaview),
+    path('buscarpersonas', views.buscardatospersonales, name='buscaperonas'),
+    path('buscarp/', views.buscarpdatospersonalesview),
+    path('buscaracercade', views.buscaracercade, name='buscaacercade'),
+    path('buscarac/', views.buscaracercadeview),
+    path('buscarcontacto', views.buscarcontacto, name='buscarcontacto'),
+    path('buscarcon/', views.buscarcontactoview),
+    path('buscarindex', views.buscarindex, name='buscaindex'),
+    path('buscarin/', views.buscarindexview),
+    path('buscarmenu/', views.buscarmenu, name='buscamenu'),
+    path('buscarme/', views.buscarmenuview)
 ]
