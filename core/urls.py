@@ -1,3 +1,4 @@
+import views as views
 from django.contrib import admin
 from django.urls import path
 from . import views
@@ -7,7 +8,7 @@ urlpatterns = [
     path('menu', views.menuview, name='menu'),
     path('acercade', views.acercadeview, name='acerca'),
     path('', views.portafolioview, name='portafolio'),
-    path('contacto', views.contactoviews, name='comtacto'),
+    path('contacto', views.contacto, name='contacto'),
     path('kenny_Lavezzari', views.datospersonalesview, name='datos'),
     path('buscarportafolio', views.buscarportafolio, name='buscaporta'),
     path('buscar/', views.buscarportaview),
@@ -20,5 +21,6 @@ urlpatterns = [
     path('buscarindex', views.buscarindex, name='buscaindex'),
     path('buscarin/', views.buscarindexview),
     path('buscarmenu/', views.buscarmenu, name='buscamenu'),
-    path('buscarme/', views.buscarmenuview)
+    path('buscarme/', views.buscarmenuview),
+
 ]

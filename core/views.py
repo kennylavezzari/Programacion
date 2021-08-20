@@ -1,5 +1,8 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render,HttpResponse,redirect,reverse
 from .models import acercade,contacto,portada,menu,portafolios,datospersonales
+from .forms import Contactform
+from django.core.mail import EmailMessage
+
 # Create your views here.
 def holamundo(request):
     return render(request,'holamundo.html')
@@ -16,14 +19,36 @@ def portafolioview(request):
     objetos = portafolios.objects.all()
     return render(request,'portafolio.html',{'valores':objetos})
 
-def contactoviews(request):
-    objetos = contacto.objects.all()
-    return render(request,'contacto.html',{'valores':objetos})
+def contacto(request):
+    contact_form = Contactform()
+    if request.method == 'POST':
+        contact_form = Contactform(data=request.POST)
+        if contact_form.is_valid():
+            name = request.POST.get('name','')
+            email = request.POST.get('email','')
+            content = request.POST.get('content','')
+            #creamos el correo de
+            email = EmailMessage(
+                "Mundo de Programacion: Nuevo mensaje de contacto",
+                "De {} <{}>\n\nEscribio:\n\n{}".format(name, email, content),
+                "no-contestar@inbox.mailtrap.io",
+                ["kolavezzari@est.itsgg.edu.ec"],
+                reply_to=[email]
+            )
+            #lo enviamos y redireccionamos
+            try:
+                email.send()
+                return redirect(reverse('contacto') + "?okey")
+            except:
+                return redirect(reverse('contacto') + "?fail")
+
+            return redirect(redirect('contacto') + "?okey")
+
+    return render(request,'contacto.html',{'formulario':contact_form})
 
 def acercadeview(request):
     objetos=acercade.objects.all()
     return render(request,'acercade.html',{'valores':objetos})
-
 
 def datospersonalesview(request):
     objetos = datospersonales.objects.all()
@@ -112,5 +137,6 @@ def buscarmenuview(request):
     else:
         mensaje = "por favor ingrese el titulo a buscar"
     return HttpResponse(mensaje)
+
 
 
